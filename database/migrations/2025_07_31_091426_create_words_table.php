@@ -14,8 +14,10 @@ return new class extends Migration
     {
         Schema::create('words', function (Blueprint $table) {
             $table->id();
-            $table->string('visiable_text');
+            $table->integer('position');
+            $table->string('translation');
             $table->text('text');
+            $table->string('audio_url');
             $table->foreignIdFor(Verse::class)->constrained('verses')->cascadeOnDelete();
             $table->timestamps();
         });
