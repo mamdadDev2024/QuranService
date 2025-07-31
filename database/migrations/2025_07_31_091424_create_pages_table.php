@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hizbs', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->id();
+            $table->integer('number')->unique();
+            $table->integer('text')->unique();
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hizbs');
+        Schema::dropIfExists('pages');
     }
 };
